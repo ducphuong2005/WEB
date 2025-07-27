@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            text-align: center;
+        }
+
+        form table {
+            text-align: center;
+            background-color: pink;
+            margin-left: 650px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h3>Giải bài toán phương trình bậc 2: ax <sup>2</sup> + bx +c = 0</h3>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <td> Nhập a</td>
+                <td> <input type="text" id="a"></td>
+            </tr>
+            <tr>
+                <td> Nhập b</td>
+                <td> <input type="text" id="b"></td>
+            </tr>
+            <tr>
+                <td> Nhập c</td>
+                <td> <input type="text" id="c"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="giaiPT()">Giải</button>
+                </td>
+            </tr>
+        </table>
+        <p id="ketqua"></p>
+
+    </form>
+    <script>
+        function giaiPT() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+            var ketqua = document.getElementById("ketqua");
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                ketqua.innerText = "Vui lòng nhập đúng 3 số!"
+                return;
+            }
+            if (a == 0) {
+                if (b == 0) {
+                    ketqua.innerText = c == 0 ? "Phương trình vô số nghiệm." : "Phương trình vô nghiệm.";
+                } else {
+                    let x = -c / b;
+                    ketqua.innerText = "Phương trình bậc 1. Nghiệm x = " + x;
+                }
+                return;
+            }
+
+            var delta = b * b - 4 * a * c;
+
+            if (delta < 0) {
+                ketqua.innerText = "Phương trình vô nghiệm.";
+            } else if (delta == 0) {
+                var x = -b / (2 * a);
+                ketqua.innerText = "Phương trình có nghiệm kép x = " + x;
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                ketqua.innerText = "Phương trình có 2 nghiệm:\nx1 = " + x1 + ", x2 = " + x2;
+            }
+        }
+    </script>
+</body>
+
+</html>

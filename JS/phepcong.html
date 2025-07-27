@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h3>Máy tính tổng 2 số</h3>
+        <div>
+            <button type="button" onclick="Nhapso('1')">1</button>
+            <button type="button" onclick="Nhapso('2')">2</button>
+            <button type="button" onclick="Nhapso('3')">3</button>
+            <button type="button" onclick="Nhapso('4')">4</button>
+            <button type="button" onclick="Nhapso('5')">5</button>
+            <button type="button" onclick="Nhapso('+')">+</button>
+            <br>
+            <button type="button" onclick="Nhapso('6')">6</button>
+            <button type="button" onclick="Nhapso('7')">7</button>
+            <button type="button" onclick="Nhapso('8')">8</button>
+            <button type="button" onclick="Nhapso('9')">9</button>
+            <button type="button" onclick="Nhapso('0')">0</button>
+            <button type="button" onclick="tinhToan()">=</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        var bieuthuc = "";
+        function Nhapso(giatri) {
+            bieuthuc += giatri;
+        }
+
+        function tinhToan() {
+            var mang = bieuthuc.split("+");
+            if (mang.length == 2) {
+                var so1 = parseInt(mang[0]);
+                var so2 = parseInt(mang[1]);
+                if (!isNaN(so1) && !isNaN(so2)) {
+                    document.getElementById("result").innerText = "Kết quả: " + (so1 + so2);
+                }
+                else {
+                    document.getElementById("result").innerText = "Lỗi: vui lòng nhập đúng 2 số.";
+                }
+            }
+            else {
+                document.getElementById("result").innerText = "Vui lòng nhập đúng định dạng: so + so.";
+            }
+
+            bieuthuc = "";
+        }
+
+    </script>
+</body>
+
+</html>
