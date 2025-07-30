@@ -1,1 +1,0 @@
-Delete JS file
