@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            background-color: blue;
+            line-height: 50px;
+        }
+
+        nav>ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 30px;
+            background-color: green;
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            line-height: 30px;
+            width: 170px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid white;
+        }
+
+        nav ul li a:hover {
+            background-color: red;
+            color: yellow;
+        }
+
+        .cha {
+            position: relative;
+        }
+
+        .con {
+            position: absolute;
+            width: 170px;
+            z-index: 100;
+            background-color: green;
+            list-style-type: none;
+            display: none;
+        }
+
+        .cha>ul>li>a {
+            width: 170px;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .cha:hover .con {
+            display: block;
+        }
+
+        section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            margin-left: 400px;
+        }
+
+        table {
+            width: 600px;
+            background-color: blue;
+            color: white;
+            align-items: center;
+            height: 100px;
+        }
+
+        .c {
+            text-align: center;
+        }
+
+        .a {
+            text-align: right;
+            width: 300px;
+        }
+
+        .b {
+            text-align: left;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            background-color: blue;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>BÀI KIỂM TRA SỐ 2</header>
+    <nav>
+        <ul>
+            <li><a href="#">Lập trình Java</a></li>
+            <li class="cha">
+                <a href="#">Lập trình Java</a>
+                <ul class="con">
+                    <li><a href="#">Lập trình Java</a></li>
+                    <li><a href="#">Lập trình Java</a></li>
+                    <li><a href="#">Lập trình Java</a></li>
+                    <li><a href="#">Lập trình Java</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Lập trình Java</a></li>
+            <li><a href="#">Lập trình Java</a></li>
+            <li><a href="#">Lập trình Java</a></li>
+            <li><a href="#">Lập trình Java</a></li>
+            <li><a href="#">Lập trình Java</a></li>
+            <li><a href="#">Lập trình Java</a></li>
+        </ul>
+    </nav>
+    <section>
+        <form>
+            <table>
+                <tr class="c">
+                    <td colspan="2">TÍNH TỔNG SỐ HOÀN HẢO</td>
+                </tr>
+                <tr>
+                    <td class="a">Số nguyên n:</td>
+                    <td class="b"><input type="text" id="n" name="n" placeholder="Nhập số nguyên n"
+                            style="width: 240px;"></td>
+                </tr>
+                <tr>
+                    <td class="a">Tổng các số chính phương nhỏ hơn n: </td>
+                    <td class="b"><input type="text" id="tong" name="tong" readonly style="width: 240px;"></td>
+                </tr>
+                <tr class="c">
+                    <td colspan="2">
+                        <button type="button" id="t" onclick="tinhtong()">Tính</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <footer>BẢN QUYỀN THUỘC VỀ TEST 2</footer>
+    <script>
+        function tinhtong() {
+            var n = parseInt(document.getElementById("n").value);
+
+            if (isNaN(n) || n <= 0) {
+                alert("Vui lòng nhập số nguyên dương hợp lệ!");
+                document.getElementById("n").focus();
+                return;
+            }
+
+            var tong = 0;
+            for (var i = 1; i <= n; i++) {
+                if (Number.isInteger(Math.sqrt(i))) {
+                    tong += i;
+                }
+            }
+
+            document.getElementById("tong").value = tong;
+        }
+    </script>
+
+</body>
+
+</html>

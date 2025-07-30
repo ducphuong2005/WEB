@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            background-color: blue;
+            line-height: 50px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav>ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 30px;
+            background-color: green;
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            line-height: 30px;
+            width: 200px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: red;
+            color: yellow;
+        }
+
+        .cha {
+            position: relative;
+        }
+
+        .con {
+            position: absolute;
+            width: 200px;
+            z-index: 100;
+            background-color: green;
+            list-style-type: none;
+            display: none;
+        }
+
+        .cha>ul>li>a {
+            width: 200px;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .cha:hover .con {
+            display: block;
+        }
+
+        section {
+            margin-top: 7px;
+            margin-left: 400px;
+            background-color: blue;
+            color: white;
+            width: 500px;
+            padding-left: 100px;
+            line-height: 30px;
+
+        }
+
+        #a {
+            text-align: center;
+        }
+
+        section>form>table {
+            text-align: right;
+            padding: auto;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            background-color: blue;
+            line-height: 50px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header> BÀI KIỂM TRA SỐ 2 </header>
+    <nav>
+        <ul>
+            <li><a href="#"> Lập trình Java</a></li>
+            <li class="cha"><a href="#"> Thiết kế web</a>
+                <ul class="con">
+                    <li> <a href="#"> Tài liệu HTML</a></li>
+                    <li> <a href="#"> Tài liệu CSS</a></li>
+                    <li> <a href="#"> Tài liệu Javascript</a></li>
+                </ul>
+            </li>
+            <li><a href="#"> Lập trình C#</a></li>
+            <li><a href="#"> Lập trình Web</a></li>
+            <li><a href="#"> Lập trình hướng đối tượng</a></li>
+            <li><a href="#"> Cơ sở dữ liệu</a></li>
+        </ul>
+    </nav>
+    <section>
+        <form action="">
+            <table>
+                <tr>
+                    <td>Họ và tên</td>
+                    <td><input type="text" id="ht" placeholder="Họ tên"></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td><input type="text" id="dc" placeholder="Địa chỉ"></td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td><input type="radio" name="gt" value="Nam"> Nam
+                        <input type="radio" name="gt" value="Nữ"> Nữ
+                        <input type="radio" name="gt" value="Khác"> Khác
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sở thích</td>
+                    <td> <input type="checkbox" class="st" value="Sữa"> Sữa
+                        <input type="checkbox" class="st" value="Chè bưởi"> Chè bưởi
+                        <input type="checkbox" class="st" value="Phở"> Phở
+                    </td>
+                </tr>
+                <tr id="a">
+                    <td colspan="2">
+                        <button type="button" onclick="hienthithongtin()">
+                            Kiểm tra
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Thông tin:</td>
+                    <td>
+                        <textarea id="tt" name="message" rows="5" cols="25" readonly></textarea>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <footer>BẢN QUYỀN THUỘC VỀ TEST 2</footer>
+
+
+    <script>
+        function hienthithongtin() {
+            // Lấy giá trị và chuẩn hóa họ tên
+            var ht = document.getElementById("ht").value.trim();
+            ht = ht.replace(/\s+/g, ' '); // Xóa khoảng trắng thừa
+
+            var words = ht.split(" ");
+            for (var i = 0; i < words.length; i++) {
+                if (words[i].length > 0) {
+                    words[i] = words[i][0].toUpperCase() + words[i].substring(1).toLowerCase();
+                }
+            }
+            ht = words.join(" ");
+            document.getElementById("ht").value = ht; // Gán lại giá trị đã chuẩn
+
+            var dc = document.getElementById("dc").value;
+
+            var gtElems = document.getElementsByName("gt");
+            var gt = "";
+            for (var g of gtElems) {
+                if (g.checked) {
+                    gt = g.value;
+                    break;
+                }
+            }
+
+            var stElems = document.getElementsByClassName("st");
+            var st = [];
+            for (var h of stElems) {
+                if (h.checked) {
+                    st.push(h.value);
+                }
+            }
+
+            var result = `Họ tên: ${ht}\nĐịa chỉ: ${dc}\nGiới tính: ${gt}\nSở thích: ${st.join(", ")}`;
+            document.getElementById("tt").value = result;
+        }
+    </script>
+</body>
+
+</html>

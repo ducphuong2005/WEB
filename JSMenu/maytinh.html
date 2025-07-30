@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+    <style> 
+        div{ 
+            margin:5px 7px 5px 80px; 
+        } 
+        #secondNumber{ 
+            margin-left: 8px; 
+        } 
+        #result{ 
+            margin:5px 22.5px; 
+        } 
+    </style> 
+</head> 
+<body> 
+    So thu nhat <input type="text" name="" id="firstNumber" value=""> 
+    <br> 
+    <div> 
+        <button value="+" onclick="set_num(this.value)">+</button> 
+        <button value="-" onclick="set_num(this.value)">-</button> 
+        <button value="*" onclick="set_num(this.value)">*</button> 
+        <button value="/" onclick="set_num(this.value)">/</button> 
+        <button value="^" onclick="set_num(this.value)">^</button> 
+    </div> 
+    So thu hai <input type="text" name="" id="secondNumber" value=""> 
+    <br> 
+    Ket qua <input type="text" name="" id="result" value=""> 
+    <script> 
+        function set_num(num) { 
+            var x = document.getElementById('firstNumber').value; 
+            var y = document.getElementById('secondNumber').value; 
+            var t = ""; 
+            if(x=='' || y==''){ 
+                alert('Giá trị nhập vào phải khác rỗng') 
+            } 
+ 
+            else { 
+                if(num == "^"){ 
+                var kq = Math.pow(parseInt(x),parseInt(y)); 
+                document.getElementById("result").value= kq; 
+                } 
+                else{ 
+                    if(num =="/" && y=="0"){ 
+                        alert('Lỗi! Số thứ hai phải khác 0'); 
+   return; 
+                    } 
+                    t =x + num +y; 
+                    document.getElementById("result").value= eval(t); 
+                } 
+            } 
+        } 
+    </script> 
+</body> 
+</html>

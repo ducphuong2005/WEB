@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            background-color: blue;
+            line-height: 50px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style-type: none;
+            width: 250px;
+            background-color: rgb(172, 35, 49);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            line-height: 40px;
+            width: 250px;
+            padding-left: 5px;
+            display: inline-block;
+            border: 1px solid white;
+
+        }
+
+        nav ul li a:hover {
+            background-color: red;
+            color: yellow;
+        }
+
+        .cha {
+            position: relative;
+
+        }
+
+        .con {
+            position: absolute;
+            width: 250px;
+            left: 250px;
+            top: 0px;
+            display: none;
+        }
+
+        .cha:hover .con {
+            display: block;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        section {
+            margin: 20px 200px;
+            background-color: blue;
+            color: white;
+            width: 900px;
+            padding-left: 80px;
+            line-height: 30px;
+            height: 150px;
+        }
+
+        section>form>table {
+            text-align: right;
+            padding: auto;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            background-color: blue;
+            line-height: 50px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header> BÀI KIỂM TRA SỐ 2 </header>
+    <div class="content">
+        <nav>
+            <ul>
+                <li><a href="#"> Lập trình Java</a></li>
+                <li class="cha"><a href="#"> Thiết kế web</a>
+                    <ul class="con">
+                        <li> <a href="#"> Tài liệu HTML</a></li>
+                        <li> <a href="#"> Tài liệu CSS</a></li>
+                        <li> <a href="#"> Tài liệu Javascript</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"> Lập trình C#</a></li>
+                <li><a href="#"> Lập trình Web</a></li>
+                <li><a href="#"> Lập trình hướng đối tượng</a></li>
+                <li><a href="#"> Cơ sở dữ liệu</a></li>
+            </ul>
+        </nav>
+        <section>
+            <form action="">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h3>DANH SÁCH HOÀN HẢO</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nhập một câu:</td>
+                        <td><input type="text" id="n" placeholder="Nhập một chuỗi" style="width: 300px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Số từ trong câu</td>
+                        <td><input type="text" id="dem" readonly style="width: 300px;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;"><button type="button"
+                                onclick="demChu()">Tính</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </div>
+    <footer>BẢN QUYỀN THUỘC VỀ TEST 2</footer>
+
+
+    <script>
+
+        function demChu() {
+            var cau = document.getElementById("n").value.trim();
+
+            if (cau === "") {
+                document.getElementById("sưm").value = 0;
+                return;
+            }
+
+            // Chuẩn hóa khoảng trắng và đếm số từ
+            var tuTrongCau = cau.split(/\s+/);
+            var soTu = tuTrongCau.length;
+
+            document.getElementById("dem").value = soTu;
+        }
+    </script>
+
+    </script>
+</body>
+
+</html>

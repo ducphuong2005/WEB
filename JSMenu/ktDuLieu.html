@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p><b>JavaScript có thể kiểm soát form</b></p>
+    <p>Hãy nhập số vào hộp text (Từ 1 đến 10):</p>
+    <div style="display: flex;">
+        <input type="text" id="n">
+        <button type="button" onclick="ktra()"> Submit</button>
+    </div>
+    <div id="kq"></div>
+
+    <script>
+        function ktra() {
+            var input = document.getElementById("n").value.trim();
+            var so = Number(input);
+            var kq = "";
+
+            // Kiểm tra điều kiện: là số nguyên từ 1 đến 10
+            if (!isNaN(so) && Number.isInteger(so) && so >= 1 && so <= 10) {
+                kq = "Dữ liệu hợp lệ.";
+                document.getElementById("kq").style.color = "green";
+            } else {
+                kq = "Dữ liệu không đúng.";
+                document.getElementById("kq").style.color = "red";
+            }
+            document.getElementById("kq").innerHTML = kq;
+
+        }
+    </script>
+</body>
+
+</html>

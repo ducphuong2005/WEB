@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form table {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <table border="1">
+            <tr>
+                <td colspan="2">Chương trình tra tuổi</td>
+            </tr>
+            <tr>
+                <td> Tuổi dương lịch </td>
+                <td> <input type="text" id="duongLich"></td>
+            </tr>
+            <tr>
+                <td>Tuổi âm lịch</td>
+                <td><input type="text" id="amLich"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" onclick="xoa()">Xóa</button>
+                    <button type="button" onclick="tracuu()">Tra cứu</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        var can = ["Canh", "Tân", "Nhâm", "Quí", "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ"];
+        var chi = ["Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi"];
+        function tracuu() {
+            var year = parseInt(document.getElementById("duongLich").value)
+            if (isNaN(year)) {
+                alert("Vui lòng nhập một năm hợp lệ");
+                return;
+            }
+            var soCan = year % 10;
+            var soChi = year % 12;
+            var tuoiAm = can[soCan] + " " + chi[soChi];
+            document.getElementById("amLich").value = tuoiAm;
+        }
+        function xoa() {
+            document.getElementById("duongLich").value = "";
+            document.getElementById("amLich").value = "";
+        }
+    </script>
+</body>
+
+</html>
