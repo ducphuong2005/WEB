@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sắp xếp từ theo Alphabet</title>
+    <style>
+        table {
+            background-color: #dcdcdc;
+            padding: 10px;
+            margin: 50px auto;
+        }
+        input[type="text"] {
+            width: 300px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2" align="center"><b>Sắp câu theo quy luật</b></td>
+        </tr>
+        <tr>
+            <td>Nhập câu ban đầu:</td>
+            <td><input type="text" id="inputCau"></td>
+        </tr>
+        <tr>
+            <td>Câu sau khi sắp lại:</td>
+            <td><input type="text" id="outputCau" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="xoa()">Xóa</button>
+                <button onclick="sapXep()">Viết lại câu</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function sapXep() {
+            let cau = document.getElementById("inputCau").value.trim();
+
+            // Tách các từ bằng khoảng trắng
+            let tu = cau.split(/\s+/); 
+
+            // Kiểm tra điều kiện số từ và độ dài từng từ
+            if (tu.length > 20) {
+                alert("Không được nhập quá 20 từ.");
+                return;
+            }
+
+            for (let i = 0; i < tu.length; i++) {
+                if (tu[i].length > 10) {
+                    alert("Từ \"" + tu[i] + "\" vượt quá 10 ký tự.");
+                    return;
+                }
+            }
+
+            // Sắp xếp theo thứ tự alphabet không phân biệt chữ hoa thường
+            tu.sort((a, b) => a.localeCompare(b, 'vi', { sensitivity: 'base' }));
+
+            // Hiển thị kết quả
+            document.getElementById("outputCau").value = tu.join(" ");
+        }
+
+        function xoa() {
+            document.getElementById("inputCau").value = "";
+            document.getElementById("outputCau").value = "";
+        }
+    </script>
+</body>
+</html>

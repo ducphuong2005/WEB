@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm từ dài nhất</title>
+    <style>
+        *{margin: auto;}
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2" align="center"><b>Tìm từ dài nhất</b></td>
+        </tr>
+        <tr>
+            <td>Nhập xâu</td>
+            <td>
+                <input type="text" id="input">
+            </td>
+        </tr>
+        <tr>
+            <td>Kết quả</td>
+            <td>
+                <input type="text" id="output" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="xoa()">Xóa</button>
+                <button onclick="tim()">Tìm kiếm</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function tim() {
+            let chuoi = document.getElementById("input").value.trim();
+
+            if (chuoi === "") {
+                document.getElementById("output").value = "Vui lòng nhập xâu!";
+                return;
+            }
+
+            // Tách từ, lọc bỏ từ rỗng (do nhiều dấu cách)
+            let arr = chuoi.split(/\s+/);
+            let max = 0;
+            let longest = "";
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].length > max) {
+                    max = arr[i].length;
+                    longest = arr[i];
+                }
+            }
+
+            document.getElementById("output").value = "Từ dài nhất: \"" + longest + "\" (độ dài: " + max + ")";
+        }
+
+        function xoa() {
+            document.getElementById("input").value = "";
+            document.getElementById("output").value = "";
+        }
+    </script>
+</body>
+</html>

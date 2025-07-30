@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <table border="1">
+            <tr>
+                <td colspan="2" style="text-align: center;">Quản lý Điểm</td>
+            </tr>
+            <tr>
+                <td>Mã học sinh</td>
+                <td><input type="text" id="mahs"></td>
+            </tr>
+            <tr>
+                <td>Họ tên</td>
+                <td><input type="text" id="hoten"></td>
+            </tr>
+            <tr>
+                <td>Điểm Toán</td>
+                <td><input type="text" id="toan"></td>
+            </tr>
+            <tr>
+                <td>Điểm Văn</td>
+                <td><input type="text" id="van"></td>
+            </tr>
+            <tr>
+                <td>Điểm ngoại ngữ</td>
+                <td><input type="text" id="nn"></td>
+            </tr>
+            <tr>
+                <td>Tổng điểm</td>
+                <td><input type="text" id="tong"></td>
+            </tr>
+            <tr>
+                <td>Kết quả</td>
+                <td><input type="text" id="kq"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="tinh()">Tính</button>
+                    <button type="button" onclick="xoa()">Xóa</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function tinh() {
+            var mahs = document.getElementById('mahs').value;
+            var hoten = document.getElementById('hoten').value;
+            var toan = parseInt(document.getElementById('toan').value);
+            var van = parseInt(document.getElementById('van').value);
+            var nn = parseInt(document.getElementById('nn').value);
+            var tong = toan +van+nn;
+            var kq;
+            if(tong>15 && toan >0 && van >0 && nn >0){
+                kq = "Đỗ";
+            }
+            else{
+                kq = "Trượt";
+            }
+            document.getElementById('tong').value = tong;
+            document.getElementById('kq').value = kq;
+
+        }
+        function xoa() {
+            document.getElementById('mahs').value = "";
+            document.getElementById('hoten').value = "";
+            document.getElementById('toan').value = "";
+            document.getElementById('van').value = "";
+            document.getElementById('nn').value = "";
+            document.getElementById('tong').value = "";
+            document.getElementById('kq').value = "";
+        }
+    </script>
+</body>
+
+</html>

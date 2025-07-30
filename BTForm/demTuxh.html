@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2" align="center"><b>Kiểm tra xâu</b></td>
+        </tr>
+        <tr>
+            <td>Nhập xâu</td>
+            <td>
+                <input type="text" id="xau">
+            </td>
+        </tr>
+        <tr>
+            <td>Nhập từ</td>
+            <td>
+                <input type="text" id="tu">
+            </td>
+        </tr>
+        <tr>
+            <td>Thông báo kết quả</td>
+            <td>
+                <input type="text" id="ketqua" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button type="button" onclick="xoa()">Xóa</button>
+                <button type="button" onclick="timKiem()">Tìm kiếm</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function timKiem() {
+            var xau = document.getElementById("xau").value.trim();
+            var tu = document.getElementById("tu").value.trim();
+            var ketqua = document.getElementById("ketqua");
+
+            if (xau === "" || tu === "") {
+                ketqua.value = "Vui lòng nhập đầy đủ xâu và từ.";
+                return;
+            }
+
+            let viTri = [];
+            let index = xau.indexOf(tu);
+
+            while (index !== -1) {
+                let end = index + tu.length - 1;
+                viTri.push(`từ ${index} - ${end}`);
+                index = xau.indexOf(tu, index + 1);
+            }
+
+            if (viTri.length > 0) {
+                ketqua.value = `Từ "${tu}" có xuất hiện và xuất hiện ở vị trí ${viTri.join(", ")}`;
+            } else {
+                ketqua.value = `Từ "${tu}" không xuất hiện trong xâu`;
+            }
+        }
+
+        function xoa() {
+            document.getElementById("xau").value = "";
+            document.getElementById("tu").value = "";
+            document.getElementById("ketqua").value = "";
+        }
+    </script>
+</body>
+
+</html>

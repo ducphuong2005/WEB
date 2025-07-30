@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính BCNN</title>
+  <style>
+    table {
+      margin: 50px auto;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+    }
+    td {
+      padding: 5px;
+    }
+    input[type="text"] {
+      width: 200px;
+    }
+    button {
+      width: 80px;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <table>
+      <tr>
+        <td>Nhập số thứ nhất:</td>
+        <td><input type="text" id="so1"></td>
+      </tr>
+      <tr>
+        <td>Nhập số thứ hai:</td>
+        <td><input type="text" id="so2"></td>
+      </tr>
+      <tr>
+        <td>BCNN của hai số trên là:</td>
+        <td><input type="text" id="ketqua" readonly></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="button" onclick="tinhBCNN()">Tìm</button>
+          <button type="button" onclick="xoa()">Hủy bỏ</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    function ucln(a, b) {
+      while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+      }
+      return a;
+    }
+
+    function tinhBCNN() {
+      let a = parseInt(document.getElementById("so1").value);
+      let b = parseInt(document.getElementById("so2").value);
+      let ketqua = document.getElementById("ketqua");
+
+      if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) {
+        ketqua.value = "Vui lòng nhập hai số nguyên dương!";
+        return;
+      }
+
+      let bcnn = (a * b) / ucln(a, b);
+      ketqua.value = bcnn;
+    }
+
+    function xoa() {
+      document.getElementById("so1").value = "";
+      document.getElementById("so2").value = "";
+      document.getElementById("ketqua").value = "";
+    }
+  </script>
+</body>
+</html>

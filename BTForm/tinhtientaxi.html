@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+          margin: auto;  
+        }
+        .a{
+            width: 75px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <table border="1">
+            <tr>
+                <td colspan="2" style="text-align: center;"><b>Chương trình tính tiền taxi</b></td>
+            </tr>
+            <tr>
+                <td class="a">Số km đã đi được</td>
+                <td><input type="text" id="km"></td>
+            </tr>
+            <tr>
+                <td>Tiền thanh toán</td>
+                <td><input type="text" id="t"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="tinh()">Tính</button>
+                    <button type="button" onclick="xoa()">Xóa</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function tinh() {
+            var km = parseInt(document.getElementById('km').value);
+            var t = 0;
+            if (km <= 10) {
+                t = km * 15000;
+            }
+            else if (km <= 50) {
+                t = 10 * 15000 + (km - 10) * 12000;
+            }
+            else
+                t = 10 * 15000 + 40 * 12000 + (km - 50) * 9000;
+            document.getElementById('t').value = t;
+        }
+
+        function xoa() {
+            document.getElementById('km').value="";
+            document.getElementById('t').value="";
+
+        }
+    </script>
+</body>
+
+</html>

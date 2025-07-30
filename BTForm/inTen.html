@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 300px;
+            margin: auto;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <th>Họ và tên:</th>
+                <td>
+                    <input type="text" name="ip_str" id="ip_str">
+                </td>
+            </tr>
+            <tr>
+                <th>Tên:</th>
+                <td>
+                    <input type="text" name="op_str" id="op_str">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="myFunction()">Hiển thị</button>
+                    <button type="reset">Hủy bỏ</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function myFunction(){
+            var input = document.getElementById("ip_str").value;
+            input = input.trim().replace(/\s+/g, ' ');
+            var str = input.split(' ');
+            document.getElementById("ip_str").value=input;
+            document.getElementById("op_str").value=str[str.length-1];
+        }
+    </script>
+</body>
+</html>

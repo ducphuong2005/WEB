@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinhNgay</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Thang</td>
+            <td>
+                <input type="text" id="thang">
+            </td>
+            <td>Nam</td>
+            <td>
+                <input type="text" id="nam">
+            </td>
+        </tr>
+        <tr>
+            <td>So ngay</td>
+            <td>
+                <input type="text" id="ngay">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="Tinh()">Hien Thi</button>
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    function Tinh() {
+        let a = document.getElementById("thang").value
+        let b = document.getElementById("nam").value
+        if (a == 1 || a == 3 || a == 5 || a == 7 || a == 8 || a == 10 || a == 12) {
+            document.getElementById("ngay").value = 30
+        }
+        if (a == 4 || a == 6 || a == 9 || a == 11) {
+            document.getElementById("ngay").value = 31
+        }
+        if (a == 2 && b % 4 == 0) {
+            document.getElementById("ngay").value = 29
+        }
+        if (a == 2 && b % 4 != 0) {
+            document.getElementById("ngay").value = 28
+        }
+    }
+</script>
+
+</html>
