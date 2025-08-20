@@ -1,0 +1,32 @@
+Dọc ngang
+	nav ul{
+		list-style-type:none;
+		width:250px;
+		background-color:blue;
+		
+	}
+		nav ul li a{
+		text-decoration:none;
+		color:white;
+		line-height:40px;
+		width:250px;
+		padding-left:5px;
+		display:inline-block;
+	}
+	nav ul li a:hover{
+		background-color:red;
+	}
+	.cha{
+		position:relative;
+	}
+	.con{
+		position:absolute;
+		width:250px;
+		left:250px;
+		top:0px;
+		display:none;
+       
+	}
+	.cha:hover .con{
+		display:block;
+	}
