@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sắp xếp mảng</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+
+    table {
+      border: 2px solid #333;
+      padding: 10px;
+      background: #cceeff;
+    }
+
+    td {
+      padding: 5px;
+    }
+
+    input[type="text"] {
+      width: 250px;
+    }
+  </style>
+  <script>
+    function sapXep() {
+      let arrStr = document.getElementById("inputArr").value.trim();
+      if (arrStr === "") {
+        alert("Vui lòng nhập mảng số!");
+        return;
+      }
+      let arr = arrStr.split(",").map(x => Number(x.trim()));
+
+      if (arr.some(isNaN)) {
+        alert("Bạn chỉ được nhập số, cách nhau bằng dấu phẩy!");
+        return;
+      }
+      let chan = arr.filter(x => x !== 0 && x % 2 === 0);
+      let khong = arr.filter(x => x === 0);
+      let le = arr.filter(x => x % 2 !== 0);
+      let ketQua = chan.concat(khong, le);
+      document.getElementById("outputArr").value = ketQua.join(",");
+    }
+
+    function huy() {
+      document.getElementById("inputArr").value = "";
+      document.getElementById("outputArr").value = "";
+    }
+  </script>
+</head>
+
+<body>
+  <form onsubmit="return false;">
+    <table border="1" >
+      <tr>
+        <th colspan="2">Sắp xếp mảng</th>
+      </tr>
+      <tr>
+        <td>Nhập mảng (cách nhau bằng dấu phẩy):</td>
+        <td><input type="text" id="inputArr" placeholder="Ví dụ: 2,5,4,0,1,6,7"></td>
+      </tr>
+      <tr>
+        <td>Mảng sau khi sắp xếp:</td>
+        <td><input type="text" id="outputArr" readonly></td>
+      </tr>
+      <tr >
+        <td colspan="2" style="text-align: center;"><input type="button" value="Hủy" onclick="huy()">
+          <input type="button" value="Sắp xếp" onclick="sapXep()"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

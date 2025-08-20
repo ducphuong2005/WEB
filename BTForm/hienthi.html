@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập JavaScript</title>
+  <script>
+    function showMessage() {
+      // Tìm thẻ có id=message và gán nội dung vào
+      document.getElementById("message").innerHTML = 
+        "Chào mừng các bạn đến với lớp học thiết kế web";
+    }
+  </script>
+</head>
+<body>
+  <h3>Click vào hình bên dưới:</h3>
+  <img src="anh.png" alt="Hình minh họa" 
+       onclick="showMessage()" 
+       style="cursor: pointer; width:200px;">
+  
+  <!-- Vùng hiển thị thông báo -->
+  <p id="message" style="color: blue; font-weight: bold; margin-top: 10px;"></p>
+</body>
+</html>
