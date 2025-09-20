@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TH2</title>
+</head>
+<body>
+	<form action="TH2.html" method="post" name="frmLogin">
+		<table border="1" align="center" bgcolor="yellow">
+			<tr>
+				<td colspan="2" bgcolor="green">
+					<b>DANG KY HOC VIEN</b>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Ho va ten: </label>
+				</td>
+				<td>
+					<input type="text" name="txtUser" required placeholder="Username" autocomplete="on" autofocus>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Ngay sinh: </label>
+				</td>
+				<td>
+					<input type="date" name="DOB">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<label>Gioi tinh: </label>
+				</td>
+				<td>
+					<input type="radio" name="btnRad">
+					<label>Nam</label>
+					<input type="radio" name="btnRad" >
+					<label>Nu</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Dia chi</label>
+				</td>
+				<td>
+					<select id="Addr" name="addrs">
+						<option value="hanoi">Ha Noi</option>
+						<option value="ninhbinh">Ninh Binh</option>
+						<option value="namdinh">Nam Dinh</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Lop</label>
+				</td>
+				<td>
+					<select id="class" name="classs">
+						<option>-------Chon lop------</option>
+						<option value="cnttta01">CNTTTA01</option>
+						<option value="cntt01">CNTT01</option>
+						<option value="cntt02">CNTT02</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<label>Email</label>
+				</td>
+				<td>
+					<input type="text" name="txtEmail" retuired placeholder="Email" autocomplete="on" autofocus>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<label>Dien thoai</label>
+				</td>
+				<td>
+					<input type="text" name="txtPhone" retuired placeholder="Phone" autocomplete="on" autofocus>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="Submit" name="btnRegister" value="Login" >
+					<input type="Reset" name="btnReset" value="Reset">
+				</td>
+			</tr>
+
+
+
+		</table>
+</body>
+</html>
