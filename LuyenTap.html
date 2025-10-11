@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện ktra TX1</title>
+     <style>
+        header{
+            background-color: red;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        .logo img{
+            width: 80px;
+            height: 80px;
+        }
+        footer{
+            background-color: red;
+            text-align: center;
+            color: white;
+            padding: 10px;
+        }
+        nav{
+            display: flex;
+            justify-content:space-between;
+        }
+        .content{
+            display: flex;
+           flex-direction: column;
+        }
+        .news img{
+            width: 80px;
+            height: 80px;
+        }
+        .news p{
+            text-align: justify;
+
+        }
+        .news{
+            display: flex;
+            
+        }
+/*=================MENU DỌC======================*/
+        .menu {
+  width: 200px;
+  background-color: #cc3333;
+}   
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu li a:hover {
+  background-color: #990000;
+}
+
+
+.submenu {
+  display: none;
+  background-color: #e06b6b;
+  margin: 0;
+  padding: 0;
+}
+
+.submenu li a {
+  padding-left: 20px;
+}
+
+/* Hiện menu cấp 2 khi hover */
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+
+/*==================MENU NGANG=============*/
+
+.menungang{
+    background-color: #cc3333;
+    height: 25px;
+}
+.menungang ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 100px;
+    
+}
+
+.menungang li{
+    position: relative;
+}
+
+.menungang a{
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.submenungang{
+    display: none !important;   
+    position: absolute;  
+    background-color: #e06b6b;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 150px; 
+}
+
+.menungang a:hover {
+  background-color: #990000;   
+}
+.s-submenu:hover .submenungang{
+    display: block !important;
+}
+
+
+
+    </style>
+</head>
+<body>
+   <header>
+       
+            <div class="logo">
+                <img src="hinh-anh-han-quoc-thumbnail.jpg" alt="Logo">
+            </div>
+            <div class="brand">
+               
+                <h1>
+                    TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI <br>  
+                        KHOA CÔNG NGHỆ THÔNG TIN
+                </h1>
+                
+            </div>
+             <div class="logo">
+                <img src="hinh-anh-han-quoc-thumbnail.jpg" alt="Logo">
+            </div>
+       
+   </header>
+
+
+   <!-- MENU NGANG -->
+    <div class="menungang">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li class="s-submenu">
+                <a href="#">Giới thiệu</a>
+                <ul class="submenungang">
+                    <li><a href="#">Du lịch</a></li>
+                    <li><a href="#">Du lịch</a></li>
+                    <li><a href="#">Du lịch</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Tuyển dụng</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+
+   <nav>
+    
+    <!-- MENU DỌC -->
+       <div class="menu">
+         <ul>
+        <li><a href="#">Kinh tế</a></li>
+        <li class="has-submenu">
+          <a href="#">Văn hóa xã hội ▾</a>
+          <ul class="submenu">
+            <li><a href="#">Du lịch</a></li>
+            <li><a href="#">Giáo dục</a></li>
+            <li><a href="#">Thể thao</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Giáo dục cộng đồng</a></li>
+        <li><a href="#">Học nữa học mãi</a></li>
+        <li><a href="#">Vừa học vừa làm</a></li>
+        <li><a href="#">Kết bạn bốn phương</a></li>
+        <li><a href="#">Đào tạo LTV</a></li>
+      </ul>   
+    </div>
+
+    
+    <div class="content">
+        <div class="news">
+            <img src="hinh-anh-han-quoc-thumbnail.jpg" alt="">
+            <p>Thủ khoa đầu ra trường ĐH Dược Hà Nội Thi Văn Anh không chỉ học giỏi mà còn hăng say tham gia các hoạt động có ý nghĩa cho xã hội.</p>
+        </div>
+         <div class="news">
+            <img src="hinh-anh-han-quoc-thumbnail.jpg" alt="">
+            <p>Thủ khoa đầu ra trường ĐH Dược Hà Nội Thi Văn Anh không chỉ học giỏi mà còn hăng say tham gia các hoạt động có ý nghĩa cho xã hội.</p>
+        </div>
+        <div class="news">
+            <img src="hinh-anh-han-quoc-thumbnail.jpg" alt="">
+            <p>Thủ khoa đầu ra trường ĐH Dược Hà Nội Thi Văn Anh không chỉ học giỏi mà còn hăng say tham gia các hoạt động có ý nghĩa cho xã hội.</p>
+        </div>
+    </div>
+
+ 
+    <div class="form">
+        <div class="dkidnhap">
+            <button>Đăng ký</button>
+            <button>Đăng nhập</button>
+        </div>
+        <div class="support">
+           
+        <table border="1" cellspacing="0" cellpadding="5" style="width:250px;">
+    <tr>
+        <th style="text-align:center;">SUPPORT CHAT</th>
+    </tr>
+    <tr>
+        <td>
+            Nếu bạn ngại gọi book hãy<br>
+            kích gọi<br>
+            Phone<br>
+            084438840<br>
+            188700<br>
+            Hotline<br>
+            Ms. Hương
+        </td>
+    </tr>
+        </table>
+         </div>
+         <div class="search">
+            <table border="1" cellspacing="0" cellpadding="5" style="width:250px;" >
+                <tr>
+                    <th style="text-align: center;" colspan="2">TÌM KIẾM TOUR</th>
+                </tr>
+               <tr>
+                <td>Loại tour</td>
+                <td><input type="text"></td>
+               </tr>
+               <tr>
+                <td>Nơi đi</td>
+                <td><input type="text"></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td><button>Tìm kiếm</button></td>
+               </tr>
+            </table>
+         </div>
+    </div>
+    
+   </nav>
+
+
+   <footer>Bản quyền thuộc HaUI</footer>
+
+</body>
+</html>
