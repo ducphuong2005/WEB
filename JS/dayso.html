@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dãy số</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            padding-top: 100px;
+        }
+        table{
+            border: 2px solid black;
+            width: 300px;
+            height: 150px;
+        }
+        td{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2" style="text-align: center;"><b>Hiển thị dãy số</td>
+        </tr>
+        <tr>
+            <td><b>Nhập dãy số: </td>
+            <td><input type="text" id="nhap"></td>
+        </tr>
+        <tr>
+            <td><b>Dãy số hiển thị: </td>
+            <td><input type="text" readonly id="hienthi"</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <button onclick="hienthi()">Hiển thị</button>
+                <button onclick="tongchisole()">Tổng chỉ số lẻ</button>
+                <button onclick="huy()">Huỷ</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function huy(){
+            document.getElementById("nhap").value = "";
+            document.getElementById("hienthi").value="";
+        }
+        function hienthi(){
+            var dayso=document.getElementById("nhap").value;
+            var arr=dayso.split(",").map(x=>parseInt(x.trim())).filter(x=>!isNaN(x));
+            var result=arr.filter(x=>x%2==0&&x%3!=0);
+            document.getElementById("hienthi").value=result.join(",");
+        }
+        function tongchisole(){
+            var dayso=document.getElementById("nhap").value;
+            var arr=dayso.split(",").map(x=>parseInt(x.trim())).filter(x=>!isNaN(x));
+            var s=0;
+            for(var i=0; i<arr.length; i++)
+            {
+                if(i%2!=0)
+                s=s+arr[i];
+            }
+            document.getElementById("hienthi").value=s;
+        }
+    </script>
+</body>
+</html>

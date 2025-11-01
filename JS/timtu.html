@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm từ dài nhất</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+             padding-top: 100px;
+        }
+        table{
+            border: 2px solid black;
+           
+        }
+        td{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2" style="text-align: center;">Tìm từ dài nhất</td>
+        </tr>
+        <tr>
+            <td>Nhập xâu: </td>
+            <td><input type="text" id="nhap"></td>
+        </tr>
+        <tr>
+            <td>Nhập từ: </td>
+            <td><input type="text" id="tu"></td>
+        </tr>
+        <tr>
+            <td>Thông báo kết quả: </td>
+            <td><input type="text" readonly id="kq"</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <button onclick="xoa()">Xoá</button>
+                <button onclick="timkiem()">Tìm kiếm</button>
+                <button onclick="timtu()">Tìm từ</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function xoa(){
+            document.getElementById("nhap").value ="";
+        }
+        function timkiem(){
+            var xau=document.getElementById("nhap").value.trim();
+            var words = xau.split(/\s+/);
+            var longest=words[0];
+            for(var i=1; i<words.length; i++)
+            {
+                if(words[i].length>longest.length)
+                       { longest=words[i]; }
+            }
+            var vitri=xau.indexOf(longest);
+            document.getElementById("kq").value=`Từ dài nhất là "${longest}" ở vị trí "${vitri}"`;
+        }
+        function timtu()
+        {
+            var xau=document.getElementById("nhap").value.trim();
+            var tu=document.getElementById("tu").value.trim();
+            var arr=xau.split(/\s+/);
+            var d=0, tim=arr[0];
+            for(var i=1; i<arr.length; i++)
+            {
+                if(arr[i]=tu)
+                {
+                    d=1;
+                    tim=arr[i];
+                }
+            }
+            var vitri=xau.indexOf(tim);
+            if(d=1)
+            {
+                document.getElementById("kq").value=`Từ ${tu} có xuất hiện và xuất hiện ở vị trí ${vitri}`;
+            }
+            else 
+            document.getElementById("kq").value=`Từ ${tu} không xuất hiện`;
+        }
+        
+    </script>
+</body>
+</html>

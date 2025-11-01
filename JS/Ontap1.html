@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiem_tra_tx_2</title>
+    <style>
+      form {
+        margin-left: 300px;
+        height: 200px;
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="margin-left: 300px">Tinh tien dien</h1>
+    <form id="electricForm" onsubmit="return false">
+      <table>
+        <tr>
+          <td>
+            <label>Ten khach hang</label>
+          </td>
+          <td>
+            <input type="text" id="name" placeholder="Nguyen Van A" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Dia chi</label>
+          </td>
+          <td>
+            <input type="text" id="address" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Loai ho</label>
+          </td>
+          <td>
+            <select id="type">
+              <option value="nhaDan">Nha dan</option>
+              <option value="kinhDoanh">Ho kinh doanh</option>
+              <option value="sanXuat">Ho san xuat</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>So dien</label>
+          </td>
+          <td>
+            <input type="number" id="numOfElectric" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" onclick="calcBtn()">Tinh tien</button>
+            <button type="reset" onclick="xoaBtn()">Xoa</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <div id="resultForm" style="margin-left: 300px; display: none">
+      <h2>Kết quả tính tiền điện</h2>
+      <p><strong>Tên khách hàng:</strong> <span id="resName"></span></p>
+      <p><strong>Địa chỉ:</strong> <span id="resAddress"></span></p>
+      <p><strong>Loại hộ:</strong> <span id="resType"></span></p>
+      <p><strong>Số điện tiêu thụ:</strong> <span id="resKwh"></span> kWh</p>
+      <p>
+        <strong>Tổng tiền phải trả:</strong>
+        <span id="resTotal" style="color: red; font-weight: bold"></span> VNĐ
+      </p>
+    </div>
+
+    <script>
+      function calcBtn() {
+        const name = document.getElementById("name").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const type = document.getElementById("type").value;
+        const kwh = parseFloat(document.getElementById("numOfElectric").value);
+
+        if (!name || !address || kwh <= 0) {
+          alert("Vui long nhap lai !!");
+          return;
+        }
+
+        let pricePerKwh = 0;
+
+        switch (type) {
+          case "nhaDan":
+            pricePerKwh = 1800;
+            break;
+          case "kinhDoanh":
+            pricePerKwh = 2500;
+            break;
+          case "sanXuat":
+            pricePerKwh = 3000;
+            break;
+        }
+
+        var total = kwh * pricePerKwh;
+
+        document.getElementById("resName").innerText = name;
+        document.getElementById("resAddress").innerText = address;
+        document.getElementById("resType").innerText = type;
+        document.getElementById("resKwh").innerText = kwh;
+        document.getElementById("resTotal").innerText = total;
+
+        document.getElementById("resultForm").style.display = "block";
+      }
+
+      function xoaBtn() {
+        document.getElementById("resultForm").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
