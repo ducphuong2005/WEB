@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm chữ số lẻ</title>
+    <style>
+        .box{
+            width: 500px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial;
+        }
+        .row{
+            margin-bottom: 10px;
+        }
+        label{
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+        }
+        input{
+            width: 250px;
+            padding: 5px;
+        }
+        button{
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="row">
+        <label>Nhập số nguyên:</label>
+        <input type="text" id="so">
+    </div>
+    <div class="row">
+        <label>Số chữ số lẻ:</label>
+        <input type="text" id="ketqua" readonly>
+    </div>
+    <button onclick="demSoLe()">Đếm</button>
+    <button onclick="huy()">Hủy bỏ</button>
+</div>
+
+<script>
+    function demSoLe(){
+        let so = document.getElementById("so").value;
+
+        // kiểm tra hợp lệ
+        if(so === "" || isNaN(so) || parseInt(so) <= 0){
+            alert("Vui lòng nhập số nguyên dương!");
+            return;
+        }
+
+        let dem = 0;
+        for(let i = 0; i < so.length; i++){
+            let chuso = parseInt(so[i]);
+            if(chuso % 2 !== 0){
+                dem++;
+            }
+        }
+
+        document.getElementById("ketqua").value = dem;
+    }
+
+    function huy(){
+        document.getElementById("so").value = "";
+        document.getElementById("ketqua").value = "";
+    }
+</script>
+
+</body>
+</html>
